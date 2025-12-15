@@ -1,0 +1,1768 @@
+/* --- 1. Variables & Reset --- */
+:root {
+    --primary-green: #153E35;
+    --nav-beige: #F4E4D7;
+    
+    --primary-dark: var(--primary-green); 
+    --primary-light: var(--nav-beige);
+    
+    --text-dark: #1A1A1A;
+    --text-grey: #4a4a4a;
+    --text-light: #666666;
+    --white: #FFFFFF;
+    --accent-gold: #D4AF37;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+    
+    --container-width: 1400px;
+    --spacing-section: 80px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+img { max-width: 100%; display: block; width: 100%; height: auto; object-fit: cover; }
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* --- 2. Typography --- */
+h2.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+h2 em {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* --- 3. Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    cursor: pointer;
+    border: none;
+}
+.btn-dark {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    transition: 0.3s;
+}
+.btn-dark:hover { background-color: var(--text-dark); }
+
+.btn-white {
+    background-color: var(--white);
+    color: var(--text-dark);
+}
+.btn-white:hover { background-color: var(--nav-beige); }
+
+/* --- 4. Header Section --- */
+.top-bar {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+.top-bar-inner { display: flex; justify-content: center; position: relative; }
+.social-icons { position: absolute; right: 40px; display: flex; gap: 15px; }
+
+.main-header { background-color: var(--white); padding: 20px 0; }
+.header-grid { display: flex; justify-content: space-between; align-items: center; }
+
+.search-box {
+    position: relative; width: 300px; display: flex; align-items: center;
+}
+.search-box input {
+    width: 100%; padding: 12px 20px; border: 1px solid #e0e0e0;
+    border-radius: 30px; outline: none; background: #FAFAFA;
+}
+.search-box .fa-search { position: absolute; right: 15px; color: #333; }
+
+.logo-container { display: flex; flex-direction: column; align-items: center; color: var(--primary-green); }
+.logo-icon { font-size: 1.5rem; }
+.logo-text { font-family: var(--font-heading); font-size: 1.8rem; letter-spacing: 2px; text-transform: uppercase; }
+
+.header-icons { display: flex; gap: 25px; align-items: center; font-size: 1.2rem; }
+.mobile-toggle { display: none; }
+
+.nav-bar { background-color: var(--nav-beige); padding: 15px 0; }
+.nav-list { display: flex; justify-content: center; gap: 50px; }
+.nav-list a { font-weight: 700; font-size: 0.95rem; color: #4A403A; }
+.nav-list a:hover { color: var(--primary-green); }
+
+/* --- 5. Hero Section --- */
+.hero { display: flex; height: 650px; width: 100%; }
+.hero-left {
+    flex: 1; position: relative;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../assets/images/heroLeft.png");
+    background-size: cover; background-position: center;
+    display: flex; align-items: flex-end; padding: 80px;
+}
+.hero-content { color: var(--white); max-width: 500px; margin-bottom: 40px; position: relative; z-index: 2; }
+.hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+.hero-right { flex: 1; }
+.hero-right img { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- 6. USP Bar --- */
+.usp-bar { padding: 25px 0; padding-left: 15%; padding-right: 15%; background-color: var(--white); border-bottom: 1px solid #eee; }
+.usp-grid { display: flex; justify-content: space-between; padding: 0 5%; }
+.usp-item { font-weight: 700; display: flex; align-items: center; gap: 12px; }
+
+/* --- 7. BESTSELLERS SECTION (Updated) --- */
+.bestsellers {
+    background-color: var(--white);
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.bestseller-header {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.section-title.text-left {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.filter-tabs button {
+    background: transparent;
+    border: 1px solid #1A3C34;
+    padding: 8px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    transition: 0.3s;
+}
+
+.filter-tabs button.active {
+    background-color: var(--primary-green);
+    color: var(--white);
+    border-color: var(--primary-green);
+}
+
+/* Desktop Grid (Default) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.product-card {
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+.product-card:hover { transform: translateY(-5px); }
+
+.p-img {
+    background-color: #FAFAFA;
+    margin-bottom: 15px;
+    aspect-ratio: 1 / 1;
+    display: flex; align-items: center; justify-content: center;
+}
+.p-img img { width: 80%; height: auto; object-fit: contain; }
+
+.p-title {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.p-price { font-weight: 700; font-size: 1rem; color: var(--text-dark); margin-bottom: 10px; }
+.p-strike { text-decoration: line-through; color: #999; font-weight: 400; font-size: 0.85rem; margin-left: 8px; }
+
+.color-dots { display: flex; gap: 8px; }
+.dot { height: 18px; width: 18px; border-radius: 50%; border: 1px solid #ddd; cursor: pointer; }
+.dot.gold { background: #EEDC82; }
+.dot.silver { background: #C0C0C0; }
+
+.center-btn { text-align: center; margin-top: 20px; }
+.center-btn .btn { padding: 15px 50px; }
+
+/* --- Footer --- */
+footer { background-color: #fafafa; padding: 80px 0 20px 0; border-top: 1px solid #eee; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+.copyright { text-align: center; border-top: 1px solid #eee; padding-top: 20px; font-size: 0.8rem; color: #999; }
+
+/* --- MOBILE RESPONSIVENESS (Max Width 992px) --- */
+.mobile-search { display: none; }
+
+@media (max-width: 992px) {
+    /* Header & Hero Adjustments */
+    .nav-bar, .search-box, .social-icons { display: none; }
+    .mobile-toggle { display: block; font-size: 1.5rem; cursor: pointer; }
+    .header-grid { padding: 0 20px; }
+    
+    .mobile-search {
+        display: flex; padding: 15px 20px; background: #f9f9f9; border-bottom: 1px solid #eee; position: relative;
+    }
+    .mobile-search input { width: 100%; padding: 10px 15px; border: 1px solid #ddd; border-radius: 5px; }
+    .mobile-search i { position: absolute; right: 35px; top: 50%; transform: translateY(-50%); }
+
+    /* Mobile Nav Drawer */
+    .nav-bar.active {
+        display: block; position: absolute; top: 130px; left: 0; width: 100%; z-index: 100;
+        background: var(--nav-beige); padding: 20px 0; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    .nav-list { flex-direction: column; gap: 20px; text-align: center; }
+
+    .hero { flex-direction: column-reverse; height: auto; }
+    .hero-left { padding: 200px 20px; text-align: center; height: 400px; }
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-right { display:none;  }
+    .usp-grid { flex-direction: column; gap: 15px; text-align: center; justify-content: center; }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+
+
+    /* --- BESTSELLERS MOBILE CAROUSEL (Specific Update) --- */
+    
+    .bestsellers {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    /* 1. Typography Update */
+    .bestseller-header { margin-bottom: 20px; }
+    
+    h2.section-title.text-left {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    /* Force "Timeless Bestseller" to new line on mobile */
+    h2.section-title em {
+        display: block; 
+        font-style: italic;
+        margin-top: 5px;
+    }
+
+    /* 2. Scrollable Tabs */
+    .filter-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+        /* Hide scrollbar */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .filter-tabs::-webkit-scrollbar { display: none; }
+    
+    .filter-tabs button {
+        flex: 0 0 auto; /* Prevent shrinking */
+        white-space: nowrap;
+    }
+
+    /* 3. Product Carousel Slider */
+    .product-grid {
+        display: flex; /* Override grid */
+        overflow-x: auto; /* Enable horizontal scroll */
+        scroll-snap-type: x mandatory; /* Snap effect */
+        gap: 20px;
+        padding-bottom: 20px;
+        margin-right: -20px; /* Counteract container padding for full bleed scroll */
+        padding-right: 20px;
+        
+        /* Hide scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .product-grid::-webkit-scrollbar { 
+        display: none; 
+    }
+
+    .product-card {
+        /* This creates the "peek" effect - 80% width allows the next card to show */
+        min-width: 80%; 
+        flex: 0 0 80%;
+        scroll-snap-align: start;
+        margin-right: 0;
+    }
+    
+    .p-img img {
+        width: 65%; /* Slightly smaller image on mobile cards */
+    }
+    
+    .center-btn .btn {
+        width: 100%; /* Full width button on mobile */
+    }
+}
+
+/* --- Recently Viewed Section --- */
+
+:root {
+    /* New variable for the specific background color from screenshot */
+    --bg-peach: #ECDBCF; 
+}
+
+.recently-viewed {
+    background-color: var(--bg-peach);
+    padding: 60px 0;
+}
+
+/* Section Title override for this section if needed, 
+   inherits .text-left from previous steps */
+.recently-viewed h2 {
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+/* Grid Layout (Desktop) */
+.rv-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Columns */
+    gap: 20px;
+}
+
+.rv-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Image Container - White Square */
+.rv-img {
+    background-color: var(--white);
+    aspect-ratio: 1 / 1; /* Perfect Square */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.rv-img img {
+    width: 65%; /* Adjusted to match screenshot whitespace */
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.rv-card:hover .rv-img img {
+    transform: scale(1.05);
+}
+
+/* Text Styling */
+.rv-info h3 {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.rv-price {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.rv-price .strike {
+    font-weight: 400;
+    color: #777;
+    font-size: 0.8rem;
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+
+/* --- Mobile Responsiveness (Carousel) --- */
+@media (max-width: 992px) {
+    
+    .recently-viewed {
+        padding: 40px 0;
+    }
+
+    /* Convert Grid to Horizontal Scroll */
+    .rv-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding-bottom: 20px; /* Space for scroll interaction */
+        
+        /* Hide Scrollbar */
+        scrollbar-width: none; 
+        -ms-overflow-style: none;
+    }
+    
+    .rv-grid::-webkit-scrollbar { 
+        display: none; 
+    }
+
+    .rv-card {
+        /* Screenshot shows about 2 cards visible. 
+           45% width + gap allows 2 cards to fit nicely with a peek of the 3rd */
+        min-width: 45%; 
+        flex: 0 0 45%;
+        scroll-snap-align: start;
+    }
+
+    .rv-img {
+        margin-bottom: 10px;
+    }
+
+    .rv-info h3 {
+        font-size: 0.75rem; /* Slightly smaller text on mobile */
+    }
+}
+
+/* --- Make It Extra Special Section --- */
+
+.extra-special {
+    background-color: var(--white);
+    padding: 60px 0;
+}
+
+/* Adjust Heading spacing */
+.extra-special .section-title {
+    margin-bottom: 50px;
+    line-height: 1.3;
+}
+
+/* Main Grid Layout */
+.special-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 50% Left, 50% Right */
+    gap: 30px;
+    align-items: start;
+}
+
+/* Left Large Image */
+.special-left {
+    height: 100%;
+}
+
+.special-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensure it matches height of the grid on the right */
+    min-height: 500px; 
+}
+
+/* Right Side 2x2 Grid */
+.special-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Individual Items */
+.special-item {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.special-img {
+    background-color: #FAFAFA;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.special-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.special-item:hover .special-img img {
+    transform: scale(1.05);
+}
+
+/* Boxed Outline Button specific to this section */
+.btn-outline-box {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--primary-green);
+    color: var(--primary-green);
+    padding: 12px 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: none; /* Screenshot shows sentence case/title case */
+    background: transparent;
+    transition: all 0.3s;
+}
+
+.btn-outline-box:hover {
+    background-color: var(--primary-green);
+    color: var(--white);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 992px) {
+    
+    .special-grid {
+        grid-template-columns: 1fr; /* Stack vertically */
+        gap: 40px;
+    }
+
+    .special-left img {
+        min-height: 350px; /* Reduced height for mobile */
+    }
+
+    /* Keep the right side as a 2x2 grid on mobile for better space usage */
+    .special-right {
+        grid-template-columns: 1fr 1fr; 
+        gap: 15px;
+    }
+    
+    .btn-outline-box {
+        font-size: 0.8rem; /* Smaller text on mobile */
+        padding: 10px 5px;
+    }
+}
+
+
+.hero-banners {
+    display: flex;
+    width: 100%;
+    /* Ensures the two images sit side-by-side on desktop */
+    flex-direction: row; 
+}
+
+/* --- Shared Card Styles --- */
+.banner-card {
+    position: relative;
+    width: 50%; /* Each takes half screen on desktop */
+    height: 600px; /* Fixed height for consistent look */
+    overflow: hidden;
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills area without distortion */
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+/* Optional: Slight zoom effect on hover */
+.banner-card:hover .banner-img {
+    transform: scale(1.05);
+}
+
+/* --- Overlay Text & Content --- */
+.banner-overlay {
+    
+    position: absolute;
+    bottom: 50px;
+    left: 40px;
+    z-index: 2;
+    max-width: 80%;
+    /* Slight dark gradient behind text for better readability */
+    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.banner-overlay h2 {
+    font-family: 'Times New Roman', serif;
+    font-size: 3rem;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    font-weight: normal;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Italic text styling */
+.banner-overlay h2 span {
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- Button Styles --- */
+.banner-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif; /* Clean sans-serif for buttons */
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.arrow {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.banner-btn:hover .arrow {
+     transform: translateX(5px);
+}
+
+/* Specific Style: Desktop Left Button (Translucent Grey) */
+.winter-btn {
+    background-color: rgba(255, 255, 255, 0.2); /* Glassy effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+.winter-btn:hover {
+     background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Specific Style: Desktop Right Button (White) */
+.lab-btn {
+    background-color: #ffffff;
+    color: #1f4e44; /* Dark green text to match theme */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.lab-btn:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* ==================== COLLECTION SECTION CSS ==================== */
+
+.collection-section {
+    padding: 80px 20px;
+    background-color: #fdfaf7; /* Very light cream/beige background */
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Times New Roman', serif;
+    font-size: 2.8rem;
+    color: #1a1a1a;
+    margin-bottom: 60px;
+    font-weight: normal;
+}
+
+.section-title span {
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+/* --- Grid Layout --- */
+.collection-grid {
+    display: grid;
+    /* Creates 7 equal columns for desktop */
+    grid-template-columns: repeat(7, 1fr); 
+    gap: 25px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* --- Card Styles --- */
+.collection-card {
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    group: 1; /* For hover effects */
+}
+
+/* --- Image Styling --- */
+.image-wrapper {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Enforces portrait shape */
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-color: #e5e5e5;
+    border-radius: 4px; /* Subtle rounding */
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.collection-card:hover .image-wrapper img {
+    transform: scale(1.08); /* Zoom effect on hover */
+}
+
+/* --- Text Label --- */
+.category-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: rgba(0,0,0,0.3);
+    font-family: 'Times New Roman', serif;
+    transition: text-decoration-color 0.3s ease;
+}
+
+.collection-card:hover .category-name {
+    text-decoration-color: #000;
+}
+
+
+/* ==================== RESPONSIVE MEDIA QUERIES ==================== */
+
+/* Tablet View */
+@media (max-width: 1024px) {
+    .banner-card {
+        height: 450px;
+    }
+    .banner-overlay h2 {
+        font-size: 2.2rem;
+    }
+    .collection-grid {
+        /* Switch to 4 columns on tablet */
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        padding: 0 20px;
+    }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    /* Hero Section Mobile */
+    .hero-banners {
+        flex-direction: column; /* Stack images vertically */
+    }
+
+    .banner-card {
+        
+        width: 100%;
+        height: 500px;
+    }
+
+    .banner-overlay {
+        
+        bottom: 30px;
+        left: 20px;
+        max-width: 90%;
+        padding: 0;
+        background: none;
+    }
+
+    .banner-overlay h2 {
+        font-size: 2.5rem;
+    }
+
+    /* --- CRITICAL MOBILE STYLE CHANGE --- */
+    /* "Winter Love" button becomes solid Green on mobile */
+    .winter-btn {
+        background-color: #1a4d3e; /* Deep Green */
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        color: #ffffff;
+        border: none;
+        box-shadow: 0 4px 10px rgba(26, 77, 62, 0.4);
+    }
+
+    /* Collection Section Mobile */
+    .collection-section {
+        display: none;
+        padding: 50px 15px;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .collection-grid {
+        /* Switch to 2 columns on mobile */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .category-name {
+        font-size: 1rem;
+    }
+}
+
+/* end of section
+
+/* ==================== GIFTING SECTION CSS ==================== */
+
+.gifting-section {
+    background-color: #ECDBCF; /* The Blush/Beige background color */
+    padding: 80px 20px;
+    width: 100%;
+}
+
+/* --- Section Header --- */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gift-title {
+    font-family: 'Times New Roman', serif;
+    font-size: 2.8rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.gift-title span {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.gift-subtitle {
+    font-family: sans-serif;
+    color: #4a4a4a;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- Grid/Layout --- */
+.gift-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns for Desktop */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+/* --- Card Styles --- */
+.gift-card {
+    display: flex;
+    flex-direction: column;
+    /* No background color on the card itself, it blends with section */
+}
+
+.gift-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Square images as per screenshot */
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.gift-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gift-card:hover .gift-image img {
+    transform: scale(1.05);
+}
+
+.gift-content h3 {
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+}
+
+.gift-content p {
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 90%;
+}
+
+/* --- Buttons (Dark Green) --- */
+.gift-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #1f4e44; /* Dark Green */
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.gift-btn:hover {
+    background-color: #143d33;
+}
+
+/* --- Footer "Explore More" Button --- */
+.gift-footer {
+    text-align: center;
+}
+
+.explore-all-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #1f4e44;
+    color: #fff;
+    padding: 14px 30px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.explore-all-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* ==================== MOBILE RESPONSIVE ==================== */
+
+@media (max-width: 900px) {
+    .gifting-section {
+        padding: 50px 0 50px 20px; /* Right padding removed for scroll effect */
+        overflow: hidden; /* Hide scrollbar spill */
+    }
+
+    .section-header {
+        padding-right: 20px; /* Restore padding for text */
+        text-align: center;
+    }
+
+    .gift-title {
+        font-size: 2rem;
+    }
+
+    /* --- Mobile Horizontal Scroll (Carousel) --- */
+    .gift-grid {
+        display: flex;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        scroll-snap-type: x mandatory; /* Snap to cards */
+        gap: 15px;
+        padding-bottom: 20px; /* Space for scrollbar if desired */
+        padding-right: 20px; /* End padding */
+        
+        /* Hide scrollbar for cleaner look */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* IE */
+    }
+    
+    .gift-grid::-webkit-scrollbar { 
+        display: none; /* Chrome/Safari */
+    }
+
+    .gift-card {
+        min-width: 65vw; /* Card takes 85% of screen width */
+        scroll-snap-align: center; /* Center the card when stopping */
+        flex-shrink: 0;
+    }
+    
+    .gift-image {
+        aspect-ratio: 4/3; /* Slightly shorter on mobile */
+        width: 400px;
+        height: 50%;
+    }
+
+    .gift-footer {
+        padding-right: 20px;
+    }
+    
+    .explore-all-btn {
+        width: 100%; /* Full width button on mobile */
+        justify-content: center;
+    }
+}
+
+/*end of section
+
+/* ==================== ETHOS SECTION CSS ==================== */
+
+.ethos-section {
+    display: flex;
+    width: 100%;
+    background-color: #fcfaf7; /* Matches the light cream background */
+    min-height: 600px; /* Ensure substantial height on desktop */
+}
+
+/* --- Image Side --- */
+.ethos-image {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    padding: 6%;
+}
+
+.ethos-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area fully */
+    display: block;
+}
+
+/* --- Content Side --- */
+.ethos-content {
+    width: 50%;
+    padding: 80px; /* Generous padding for desktop */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    align-items: flex-start; /* Left align text */
+}
+
+/* Typography Styles */
+.ethos-label {
+    font-family: 'Roboto', sans-serif; /* or your main sans-serif font */
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.ethos-title {
+    font-family: 'Times New Roman', serif;
+    font-size: 3.5rem;
+    color: #1a1a1a;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+.ethos-title span {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400; /* Regular weight for the italic parts */
+}
+
+.ethos-text {
+    font-family: sans-serif; /* Clean sans-serif for body text */
+    font-size: 1rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    max-width: 90%;
+}
+
+/* Button Style */
+.ethos-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #1f4e44; /* Dark Green theme color */
+    color: #fff;
+    padding: 14px 32px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.ethos-btn:hover {
+    background-color: #143d33;
+    transform: translateY(-2px);
+}
+
+.ethos-btn .arrow {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+/* ==================== MOBILE RESPONSIVE ==================== */
+
+@media (max-width: 900px) {
+    .ethos-section {
+        flex-direction: column; /* Stack image on top of text */
+        height: auto; /* Allow height to grow with content */
+    }
+
+    /* Image takes full width and fixed height */
+    .ethos-image {
+        width: 100%;
+        height: 400px; 
+    }
+
+    /* Content Area Adjustment */
+    .ethos-content {
+        width: 100%;
+        padding: 40px 25px; /* Reduce padding for mobile */
+    }
+
+    .ethos-title {
+        font-size: 2.5rem; /* Smaller heading for mobile */
+        margin-bottom: 20px;
+    }
+
+    .ethos-text {
+        font-size: 0.95rem;
+        max-width: 100%; /* Use full width */
+    }
+
+    .ethos-btn {
+        width: 100%; /* Optional: Make button full width on mobile if desired */
+        justify-content: center;
+    }
+}
+
+/*end of section
+/* ==================== FUTURE TRENDS SECTION ==================== */
+
+.future-section {
+    display: flex;
+    width: 100%;
+    /* Gradient matching the specific peach/beige tone in screenshot */
+    background: linear-gradient(180deg, #fefaf6 0%, #f9e6dd 100%);
+    padding: 80px 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Image Side (Desktop) --- */
+.future-image-wrapper {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.main-feature-img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    object-fit: contain;
+    /* Blend mode to help remove white background if image isn't transparent */
+    mix-blend-mode: multiply; 
+    filter: contrast(1.05);
+}
+
+/* --- Content Side (Desktop) --- */
+.future-content {
+    width: 55%;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Left align on desktop */
+}
+
+/* Typography */
+.future-title {
+    font-family: 'Times New Roman', serif;
+    font-size: 3.2rem;
+    color: #2a2a2a;
+    line-height: 1.15;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.future-title span {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.future-desc {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    max-width: 85%;
+    font-weight: 400;
+}
+
+/* --- Features Grid (Desktop: 3 Cols) --- */
+.features-grid {
+    display: grid;
+    /* EXACT MATCH: 3 Columns as shown in screenshot */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px 20px; /* Row Gap 40px, Col Gap 20px */
+    width: 100%;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the icon relative to the text */
+    text-align: center;
+}
+
+/* Icons */
+.icon-box {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 15px;
+}
+
+.icon-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Filter to match the Dark Green/Grey brand color #1f4e44 */
+    filter: brightness(0) saturate(100%) invert(24%) sepia(13%) saturate(2251%) hue-rotate(123deg) brightness(95%) contrast(91%);
+}
+
+.feature-label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+}
+
+/* ==================== MOBILE RESPONSIVE ==================== */
+
+@media (max-width: 900px) {
+    .future-section {
+        flex-direction: column; /* Stack vertically */
+        padding: 60px 20px 40px 20px;
+        text-align: center;
+    }
+
+    /* 1. Content (Title/Grid) moves to TOP */
+    .future-content {
+        width: 100%;
+        padding-left: 0;
+        align-items: center; /* Center align everything on mobile */
+        margin-bottom: 40px;
+        order: 1; 
+    }
+
+    /* 2. Image moves to BOTTOM */
+    .future-image-wrapper {
+        width: 100%;
+        padding-right: 0;
+        order: 2;
+    }
+
+    .future-title {
+        font-size: 2.4rem;
+        margin-bottom: 20px;
+    }
+
+    .future-desc {
+        max-width: 100%;
+        font-size: 0.95rem;
+        margin-bottom: 40px;
+    }
+
+    /* Mobile Grid: 2 Cols as shown in screenshot */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 15px;
+        max-width: 400px; /* Prevent grid from getting too wide on tablets */
+    }
+    
+    .main-feature-img {
+        max-width: 80%; /* Reduce image size slightly for mobile balance */
+    }
+}
+
+/*end of section
+
+/* ==================== TESTIMONIAL SECTION CSS ==================== */
+
+.testimonial-section {
+    padding: 80px 40px;
+    background-color: #fff; /* Or a very light cream if preferred */
+    text-align: center;
+}
+
+/* --- Header --- */
+.testimonial-header {
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sec-title {
+    font-family: 'Times New Roman', serif;
+    font-size: 2.8rem;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+.sec-title span {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.sec-subtitle {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* --- Grid/Carousel --- */
+.testimonial-grid {
+    display: grid;
+    /* Desktop: 4 columns as seen in the image */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+    text-align: left; /* Content inside cards is left-aligned */
+}
+
+/* --- Testimonial Card --- */
+.testi-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.testi-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Square image */
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.testi-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testi-content .stars {
+    color: #555; /* Dark grey stars */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.quote-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.quote-text {
+    font-family: sans-serif;
+    font-size: 0.95rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.customer-name {
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1a1a1a;
+    text-align: right; /* Name is right-aligned */
+}
+
+/* --- Read More Button --- */
+.testimonial-footer {
+    margin-bottom: 60px;
+}
+
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #1f4e44; /* Dark Green theme color */
+    color: #fff;
+    padding: 14px 32px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #143d33;
+}
+
+.read-more-btn .arrow {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+/* --- Pagination --- */
+.testimonial-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.page-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 150px;
+}
+
+.page-circle {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #1f4e44;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.page-item p {
+    font-family: sans-serif;
+    font-size: 0.85rem;
+    color: #1a1a1a;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* ==================== MOBILE RESPONSIVE ==================== */
+
+@media (max-width: 900px) {
+    
+    /* 1. Section Container */
+    .testimonial-section {
+        padding: 50px 0; /* Vertical padding only, sides handle scroll */
+        background-color: #F7F0EA; /* Matches the beige background color */
+        overflow: hidden;
+    }
+
+    .testimonial-header {
+        padding: 0 20px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    /* 2. Carousel Grid (Horizontal Scroll) */
+    .testimonial-grid {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory; /* Snap to cards */
+        padding: 0 20px 40px 20px; /* Padding bottom for spacing */
+        
+        /* Hide scrollbars */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .testimonial-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* 3. Card Styling */
+    .testi-card {
+        min-width: 80%; /* 80% width creates the "Peek" effect */
+        flex: 0 0 80%;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Text aligns left */
+    }
+
+    /* Image - Square & Full Width */
+    .testi-image {
+        width: 100%;
+        padding: 0; /* Remove previous padding hack */
+        margin-bottom: 15px;
+        aspect-ratio: 1/1; /* Forces square shape */
+        overflow: hidden;
+    }
+    
+    .testi-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Text Content */
+    .testi-content {
+        width: 100%;
+        text-align: left;
+    }
+
+    .stars {
+        color: #f4b400; /* Gold stars */
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+    }
+
+    .quote-title {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #000;
+    }
+
+    .quote-text {
+        display: block; /* Fix inline issue */
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .customer-name {
+        display: block;
+        text-align: right; /* Name aligned to right as per image */
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
+
+    /* 4. Button Area */
+    .testimonial-footer {
+        padding: 0 20px;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .read-more-btn {
+        background-color: #1f4e44; /* Dark Green */
+        color: #fff;
+        padding: 12px 25px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* 5. Bottom Circular Features (Triangle Layout) */
+    .testimonial-pagination {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 Columns */
+        gap: 30px;
+        padding: 50px 40px 20px 40px; /* Padding to center visuals */
+        margin-top: 20px;
+    }
+
+    .page-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* The 3rd item spans full width to center itself at bottom */
+    .page-item:nth-child(3) {
+        grid-column: span 2;
+        justify-self: center;
+    }
+
+    .page-circle {
+        width: 60px;
+        height: 60px;
+        border: 1.5px solid #1f4e44; /* Thin dark green outline */
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .page-item p {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #333;
+        max-width: 120px;
+        line-height: 1.3;
+    }
+}
+
+/*end of section */
+/* ==================== FOOTER CSS ==================== */
+
+.footer-section {
+    background-color: #1a3c34; /* Deep Dark Green Background */
+    color: #ffffff;
+    padding-top: 70px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean Sans-Serif */
+}
+
+.footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    /* Desktop: 4 Columns */
+    grid-template-columns: 2fr 1fr 1fr 1fr; 
+    gap: 40px;
+    padding: 0 40px 60px 40px;
+}
+
+/* --- Brand Column --- */
+.footer-logo {
+    max-width: 160px; /* Adjust based on your actual logo size */
+    margin-bottom: 25px;
+    display: block;
+    filter: brightness(0) invert(1); /* Ensures logo is white if it's a PNG */
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+    max-width: 90%;
+}
+
+/* --- Links Columns --- */
+.footer-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* --- Copyright Bar --- */
+.copyright-bar {
+    background-color: #266b5d; /* Lighter Teal/Green Bar */
+    text-align: center;
+    padding: 18px 0;
+    margin-top: 20px;
+}
+
+.copyright-bar p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* ==================== MOBILE RESPONSIVE ==================== */
+
+@media (max-width: 900px) {
+    .footer-section {
+        padding-top: 50px;
+    }
+
+    .footer-container {
+        /* Mobile: Stack vertically */
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 25px 50px 25px;
+    }
+
+    /* Important: Mobile Text is Left Aligned as per screenshot */
+    .footer-col {
+        text-align: left; 
+    }
+
+    .brand-col {
+        margin-bottom: 10px;
+    }
+    
+    .footer-text {
+        max-width: 100%; /* Full width text on mobile */
+        font-size: 0.95rem;
+    }
+
+    .footer-heading {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+    }
+    
+    /* Copyright bar styling for mobile */
+    .copyright-bar {
+        margin-top: 0;
+        padding: 15px;
+        width: 90%; /* Creates the rounded bar look seen in mobile screenshot */
+        margin: 0 auto 20px auto;
+        border-radius: 8px;
+    }
+}
+
+/* --- ANIMATION CLASSES (Required for JS) --- */
+
+/* 1. Fade Up Effect (Text, Cards) */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(40px); /* Starts slightly lower */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+/* 2. Scale Effect (Hero Image) */
+.animate-scale {
+    opacity: 0;
+    transform: scale(0.95); /* Starts slightly zoomed out */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* The class added by JS to trigger the show */
+.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+/* Optional: Stagger delays handled in JS, but defaults here */
+.animate-fade-up, .animate-scale {
+    transition-delay: 0ms; 
+}
